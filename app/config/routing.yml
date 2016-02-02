@@ -1,0 +1,12 @@
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+
+app.index:
+    resource: "@AppBundle/Controller/IndexController.php"
+    type: annotation
+
+producto:
+
+    resource: "@AppBundle/Controller/ProductoController.php"
+    type: annotation
+    prefix: /producto

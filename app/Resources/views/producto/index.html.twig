@@ -1,0 +1,45 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+    <h1>Productos</h1>
+    <br></br>
+    <h3><a href="{{ path('app_producto_insert') }}">New Product</a></h3>
+    <br></br>
+    <table> <td><b>OPCIONES: </b></td>
+        <td></td>
+        <td></td>
+    </table>
+    <table>
+        {% for producto in producto %}
+            <tr>
+                <td>==========</td>
+                <td>==========</td>
+                <td>==========</td>
+            </tr>
+
+            <tr>
+                <td>{{ producto.id }} </td>
+                <td>{{ producto.nombre }} </td>
+                <td>{{ producto.descripcion }} </td>
+            </tr>
+            <tr>
+                <td>Precio:{{ producto.precio }} </td>
+                <td> Disponible:{{ producto.disponible }} </td>
+            </tr>
+
+            <tr>
+                <td> Creado:{{ producto.createdAt | date("m/d/Y") }} </td>
+                <td> Modificado:{{ producto.updateAt | date("m/d/Y") }}</td>
+            </tr>
+
+            <tr>
+                <td><b>OPCIONES: </b></td>
+                <td></td>
+                <td><a href="{{ path('app_producto_update', {'id':producto.id}) }}">Update</a> ||
+                    <a href="{{ path('app_producto_remove', {'id':producto.id}) }}">Remove</a> ||
+                    <a href="{{ path('app_producto_insert') }}">New Product</a>                ||
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+
